@@ -15,6 +15,7 @@ class ViewController: UIViewController, UIWebViewDelegate, UITextFieldDelegate {
     @IBOutlet weak var urlTextField: UITextField!
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var forwardButton: UIButton!
+    @IBOutlet weak var navigationLabel: UILabel!
 
     //IBActions
     @IBAction func onBackButtonPressed(sender: AnyObject) {
@@ -89,12 +90,19 @@ class ViewController: UIViewController, UIWebViewDelegate, UITextFieldDelegate {
 
         self.buttonState()
 
+        let returnedString = webView.stringByEvaluatingJavaScriptFromString("document.title")
+        navigationLabel.text = returnedString
+        println("\(returnedString)")
+
     }
 
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
 
         self.view.endEditing(true)
     }
+
+    
+
 
     //Helpers
 
@@ -110,13 +118,13 @@ class ViewController: UIViewController, UIWebViewDelegate, UITextFieldDelegate {
         if urlString.hasPrefix("http://") {
 
             loadUrl(urlString)
-            //urlTextField.text = urlString
+            urlTextField.text = urlString
             //println("\(urlString)")
 
         } else {
 
             loadUrl("http://\(urlString)")
-            //urlTextField.text = "http://\(urlString)"
+            urlTextField.text = "http://\(urlString)"
             //println("\(urlString)")
 
         }
@@ -126,6 +134,8 @@ class ViewController: UIViewController, UIWebViewDelegate, UITextFieldDelegate {
 
         self.backButton.enabled = self.webView.canGoBack
         self.forwardButton.enabled = self.webView.canGoForward
+
+        //self.urlTextField.text = urlString
     }
 
 

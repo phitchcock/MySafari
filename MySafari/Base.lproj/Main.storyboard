@@ -24,6 +24,14 @@
                                     <outlet property="delegate" destination="vXZ-lx-hvc" id="RgB-Dk-TKc"/>
                                 </connections>
                             </webView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Please Type URL" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cd4-8E-2Vq">
+                                <rect key="frame" x="16" y="44" width="568" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="URL" returnKeyType="go"/>
+                                <connections>
+                                    <outlet property="delegate" destination="vXZ-lx-hvc" id="GQV-VN-DVN"/>
+                                </connections>
+                            </textField>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Ky-H1-gdR">
                                 <rect key="frame" x="0.0" y="544" width="600" height="56"/>
                                 <subviews>
@@ -97,32 +105,35 @@
                                     <constraint firstItem="Kai-mv-PPL" firstAttribute="leading" secondItem="6Ky-H1-gdR" secondAttribute="leading" constant="8" id="ywQ-cc-ya8"/>
                                 </constraints>
                             </view>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Please Type URL" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cd4-8E-2Vq">
-                                <rect key="frame" x="16" y="44" width="568" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="URL" returnKeyType="go"/>
-                                <connections>
-                                    <outlet property="delegate" destination="vXZ-lx-hvc" id="GQV-VN-DVN"/>
-                                </connections>
-                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u6u-dD-dqe">
+                                <rect key="frame" x="16" y="82" width="568" height="21"/>
+                                <color key="backgroundColor" red="0.26274509800000001" green="0.59607843140000005" blue="0.84705882349999995" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.99215686270000003" green="0.99215686270000003" blue="0.99215686270000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="u6u-dD-dqe" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="36I-BF-K18"/>
                             <constraint firstItem="6Ky-H1-gdR" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="4iI-ZK-Rlm"/>
                             <constraint firstItem="6Ky-H1-gdR" firstAttribute="top" secondItem="Q8u-lK-2V8" secondAttribute="bottom" constant="8" id="8Ew-KK-c1s"/>
-                            <constraint firstItem="cd4-8E-2Vq" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="8Vr-Tq-ttb"/>
+                            <constraint firstItem="u6u-dD-dqe" firstAttribute="top" secondItem="cd4-8E-2Vq" secondAttribute="bottom" constant="8" id="Bge-yC-uWG"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="6Ky-H1-gdR" secondAttribute="bottom" id="GVO-TM-Bvw"/>
-                            <constraint firstItem="cd4-8E-2Vq" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="24" id="M8r-Xh-qB0"/>
                             <constraint firstAttribute="trailingMargin" secondItem="6Ky-H1-gdR" secondAttribute="trailing" constant="-16" id="ODn-Dm-CGl"/>
                             <constraint firstItem="Q8u-lK-2V8" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="QyC-Dx-drJ"/>
+                            <constraint firstItem="u6u-dD-dqe" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="S8T-4g-0zX"/>
+                            <constraint firstItem="cd4-8E-2Vq" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="Shs-Vy-Cuj"/>
                             <constraint firstItem="Q8u-lK-2V8" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="14" id="Whw-3V-N71"/>
+                            <constraint firstItem="cd4-8E-2Vq" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="24" id="hQi-P2-6OW"/>
+                            <constraint firstItem="cd4-8E-2Vq" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="lV0-IE-M56"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Q8u-lK-2V8" secondAttribute="trailing" constant="-16" id="sZ2-x2-Bm8"/>
-                            <constraint firstItem="cd4-8E-2Vq" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="yqE-bl-foY"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="backButton" destination="Kai-mv-PPL" id="Hqc-jp-CJ7"/>
                         <outlet property="forwardButton" destination="JlC-lW-Pyk" id="c1T-fG-Afp"/>
+                        <outlet property="navigationLabel" destination="u6u-dD-dqe" id="PGX-dJ-jrC"/>
                         <outlet property="urlTextField" destination="cd4-8E-2Vq" id="nyy-Re-CrJ"/>
                         <outlet property="webView" destination="Q8u-lK-2V8" id="MAr-JO-BNp"/>
                     </connections>
