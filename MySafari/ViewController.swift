@@ -39,6 +39,8 @@ class ViewController: UIViewController, UIWebViewDelegate, UITextFieldDelegate {
     @IBAction func onReloadButtonPressed(sender: AnyObject) {
 
         webView.reload()
+
+        www
     }
 
     @IBAction func comingSoonButtonPressed(sender: AnyObject) {
@@ -47,6 +49,10 @@ class ViewController: UIViewController, UIWebViewDelegate, UITextFieldDelegate {
         alert.show()
     }
 
+    @IBAction func clearURLButtonPressed(sender: AnyObject) {
+
+        urlTextField.text = ""
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,16 +70,7 @@ class ViewController: UIViewController, UIWebViewDelegate, UITextFieldDelegate {
 
         let urlString = urlTextField.text
 
-        if urlString.hasPrefix("http://") {
-
-            loadUrl(urlString)
-            println("\(urlString)")
-
-        } else {
-
-            loadUrl("http://\(urlString)")
-            println("\(urlString)")
-        }
+        urlHelper(urlString)
 
         return true
     }
@@ -93,6 +90,22 @@ class ViewController: UIViewController, UIWebViewDelegate, UITextFieldDelegate {
         let url = NSURL(string: urlString)
         let urlRequest = NSURLRequest(URL: url)
         self.webView.loadRequest(urlRequest)
+    }
+
+    func urlHelper(urlString: NSString) {
+
+        if urlString.hasPrefix("http://") {
+
+            loadUrl(urlString)
+            urlTextField.text = urlString
+            println("\(urlString)")
+
+        } else {
+
+            loadUrl("http://\(urlString)")
+            urlTextField.text = "http://\(urlString)"
+            println("\(urlString)")
+        }
     }
 
 

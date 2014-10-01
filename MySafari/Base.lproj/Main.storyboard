@@ -72,6 +72,15 @@
                                             <action selector="comingSoonButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="AWW-q6-t27"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="awC-bj-kxc">
+                                        <rect key="frame" x="147" y="13" width="66" height="30"/>
+                                        <state key="normal" title="ClearURL">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="clearURLButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="sVC-hr-c5Q"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -88,7 +97,7 @@
                                     <constraint firstItem="Kai-mv-PPL" firstAttribute="leading" secondItem="6Ky-H1-gdR" secondAttribute="leading" constant="8" id="ywQ-cc-ya8"/>
                                 </constraints>
                             </view>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cd4-8E-2Vq">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Please Type URL" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cd4-8E-2Vq">
                                 <rect key="frame" x="16" y="44" width="568" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="URL" returnKeyType="go"/>
