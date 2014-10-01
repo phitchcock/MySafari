@@ -102,6 +102,8 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="backButton" destination="Kai-mv-PPL" id="Hqc-jp-CJ7"/>
+                        <outlet property="forwardButton" destination="JlC-lW-Pyk" id="c1T-fG-Afp"/>
                         <outlet property="urlTextField" destination="cd4-8E-2Vq" id="nyy-Re-CrJ"/>
                         <outlet property="webView" destination="Q8u-lK-2V8" id="MAr-JO-BNp"/>
                     </connections>

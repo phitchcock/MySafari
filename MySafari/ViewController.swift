@@ -13,16 +13,22 @@ class ViewController: UIViewController, UIWebViewDelegate, UITextFieldDelegate {
     //IBOutlets
     @IBOutlet weak var webView: UIWebView!
     @IBOutlet weak var urlTextField: UITextField!
+    @IBOutlet weak var backButton: UIButton!
+    @IBOutlet weak var forwardButton: UIButton!
 
     //IBActions
     @IBAction func onBackButtonPressed(sender: AnyObject) {
 
         webView.goBack()
+        forwardButton.hidden = false
+        backButton.hidden = true
     }
 
     @IBAction func onForwardButtonPressed(sender: AnyObject) {
 
         webView.goForward()
+        forwardButton.hidden = true
+        backButton.hidden = false
     }
 
     @IBAction func onStopLoadingButtonPressed(sender: AnyObject) {
@@ -39,6 +45,9 @@ class ViewController: UIViewController, UIWebViewDelegate, UITextFieldDelegate {
         super.viewDidLoad()
 
         loadUrl("http://www.google.com")
+
+
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -49,7 +58,19 @@ class ViewController: UIViewController, UIWebViewDelegate, UITextFieldDelegate {
     func textFieldShouldReturn(textField: UITextField) -> Bool {
 
         let urlString = urlTextField.text
-        loadUrl(urlString)
+
+        if urlString.hasPrefix("http://") {
+
+            loadUrl(urlString)
+            println("\(urlString)")
+
+        } else {
+
+            loadUrl("http://\(urlString)")
+            println("\(urlString)")
+        }
+
+
 
         return true
     }
