@@ -41,12 +41,17 @@ class ViewController: UIViewController, UIWebViewDelegate, UITextFieldDelegate {
         webView.reload()
     }
 
+    @IBAction func comingSoonButtonPressed(sender: AnyObject) {
+
+        var alert = UIAlertView(title: "Comming Soon", message: "Take over the world", delegate: nil, cancelButtonTitle: "OK")
+        alert.show()
+    }
+
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         loadUrl("http://www.google.com")
-
-
 
     }
 
@@ -69,8 +74,6 @@ class ViewController: UIViewController, UIWebViewDelegate, UITextFieldDelegate {
             loadUrl("http://\(urlString)")
             println("\(urlString)")
         }
-
-
 
         return true
     }

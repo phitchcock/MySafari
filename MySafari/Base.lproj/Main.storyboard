@@ -63,10 +63,20 @@
                                             <action selector="onReloadButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="BrV-xT-SIP"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w2Y-Ra-N43">
+                                        <rect key="frame" x="103" y="13" width="30" height="30"/>
+                                        <state key="normal" title="+">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="comingSoonButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="AWW-q6-t27"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="JlC-lW-Pyk" secondAttribute="trailing" constant="19" id="6Sd-Yx-Rpi"/>
+                                    <constraint firstItem="w2Y-Ra-N43" firstAttribute="leading" secondItem="C6t-Ok-Adq" secondAttribute="trailing" constant="8" id="Eka-QA-bdt"/>
                                     <constraint firstItem="JlC-lW-Pyk" firstAttribute="leading" secondItem="3Ib-f6-LFX" secondAttribute="trailing" constant="5" id="Kdk-QS-GWW"/>
                                     <constraint firstAttribute="bottom" secondItem="Kai-mv-PPL" secondAttribute="bottom" constant="13" id="LTa-Ov-jA2"/>
                                     <constraint firstItem="Kai-mv-PPL" firstAttribute="top" secondItem="6Ky-H1-gdR" secondAttribute="top" constant="13" id="RLP-ee-lRI"/>
