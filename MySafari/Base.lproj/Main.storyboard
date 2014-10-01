@@ -45,14 +45,36 @@
                                             <action selector="onForwardButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="PPZ-wO-Hj5"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C6t-Ok-Adq">
+                                        <rect key="frame" x="49" y="13" width="46" height="30"/>
+                                        <state key="normal" title="Stop">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="onStopLoadingButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="BQa-K7-xfg"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Ib-f6-LFX">
+                                        <rect key="frame" x="481" y="13" width="49" height="30"/>
+                                        <state key="normal" title="Reload">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="onReloadButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="BrV-xT-SIP"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="JlC-lW-Pyk" secondAttribute="trailing" constant="19" id="6Sd-Yx-Rpi"/>
+                                    <constraint firstItem="JlC-lW-Pyk" firstAttribute="leading" secondItem="3Ib-f6-LFX" secondAttribute="trailing" constant="5" id="Kdk-QS-GWW"/>
                                     <constraint firstAttribute="bottom" secondItem="Kai-mv-PPL" secondAttribute="bottom" constant="13" id="LTa-Ov-jA2"/>
                                     <constraint firstItem="Kai-mv-PPL" firstAttribute="top" secondItem="6Ky-H1-gdR" secondAttribute="top" constant="13" id="RLP-ee-lRI"/>
+                                    <constraint firstAttribute="bottom" secondItem="3Ib-f6-LFX" secondAttribute="bottom" constant="13" id="Sl0-Ba-JVI"/>
                                     <constraint firstItem="JlC-lW-Pyk" firstAttribute="top" secondItem="6Ky-H1-gdR" secondAttribute="top" constant="13" id="UXF-nZ-Hz2"/>
+                                    <constraint firstItem="C6t-Ok-Adq" firstAttribute="leading" secondItem="6Ky-H1-gdR" secondAttribute="leading" constant="49" id="YTd-1D-AHm"/>
                                     <constraint firstAttribute="bottom" secondItem="JlC-lW-Pyk" secondAttribute="bottom" constant="13" id="nu9-9q-bTg"/>
+                                    <constraint firstAttribute="bottom" secondItem="C6t-Ok-Adq" secondAttribute="bottom" constant="13" id="onb-It-uYO"/>
                                     <constraint firstItem="Kai-mv-PPL" firstAttribute="leading" secondItem="6Ky-H1-gdR" secondAttribute="leading" constant="8" id="ywQ-cc-ya8"/>
                                 </constraints>
                             </view>

@@ -25,6 +25,16 @@ class ViewController: UIViewController, UIWebViewDelegate, UITextFieldDelegate {
         webView.goForward()
     }
 
+    @IBAction func onStopLoadingButtonPressed(sender: AnyObject) {
+
+        webView.stopLoading()
+    }
+
+    @IBAction func onReloadButtonPressed(sender: AnyObject) {
+
+        webView.reload()
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
