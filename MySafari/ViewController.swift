@@ -12,6 +12,7 @@ class ViewController: UIViewController, UIWebViewDelegate {
 
     //IBOutlets
     @IBOutlet weak var webView: UIWebView!
+    @IBOutlet weak var urlTextField: UITextField!
 
 
     override func viewDidLoad() {
