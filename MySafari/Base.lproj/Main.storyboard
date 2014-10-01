@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="14A361c" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -16,18 +17,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cd4-8E-2Vq">
-                                <rect key="frame" x="16" y="20" width="568" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="URL" returnKeyType="go"/>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q8u-lK-2V8">
+                                <rect key="frame" x="0.0" y="34" width="600" height="502"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
-                                    <outlet property="delegate" destination="vXZ-lx-hvc" id="GQV-VN-DVN"/>
+                                    <outlet property="delegate" destination="vXZ-lx-hvc" id="RgB-Dk-TKc"/>
                                 </connections>
-                            </textField>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6Ky-H1-gdR">
+                            </webView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Ky-H1-gdR">
                                 <rect key="frame" x="0.0" y="544" width="600" height="56"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kai-mv-PPL">
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kai-mv-PPL">
                                         <rect key="frame" x="8" y="13" width="46" height="30"/>
                                         <state key="normal" title="&lt;">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -36,18 +36,48 @@
                                             <action selector="onBackButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Taw-sI-QmD"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JlC-lW-Pyk">
+                                        <rect key="frame" x="535" y="13" width="46" height="30"/>
+                                        <state key="normal" title="&gt;">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="onForwardButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="PPZ-wO-Hj5"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="JlC-lW-Pyk" secondAttribute="trailing" constant="19" id="6Sd-Yx-Rpi"/>
+                                    <constraint firstAttribute="bottom" secondItem="Kai-mv-PPL" secondAttribute="bottom" constant="13" id="LTa-Ov-jA2"/>
+                                    <constraint firstItem="Kai-mv-PPL" firstAttribute="top" secondItem="6Ky-H1-gdR" secondAttribute="top" constant="13" id="RLP-ee-lRI"/>
+                                    <constraint firstItem="JlC-lW-Pyk" firstAttribute="top" secondItem="6Ky-H1-gdR" secondAttribute="top" constant="13" id="UXF-nZ-Hz2"/>
+                                    <constraint firstAttribute="bottom" secondItem="JlC-lW-Pyk" secondAttribute="bottom" constant="13" id="nu9-9q-bTg"/>
+                                    <constraint firstItem="Kai-mv-PPL" firstAttribute="leading" secondItem="6Ky-H1-gdR" secondAttribute="leading" constant="8" id="ywQ-cc-ya8"/>
+                                </constraints>
                             </view>
-                            <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Q8u-lK-2V8">
-                                <rect key="frame" x="0.0" y="34" width="600" height="502"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cd4-8E-2Vq">
+                                <rect key="frame" x="16" y="44" width="568" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="URL" returnKeyType="go"/>
                                 <connections>
-                                    <outlet property="delegate" destination="vXZ-lx-hvc" id="RgB-Dk-TKc"/>
+                                    <outlet property="delegate" destination="vXZ-lx-hvc" id="GQV-VN-DVN"/>
                                 </connections>
-                            </webView>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="6Ky-H1-gdR" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="4iI-ZK-Rlm"/>
+                            <constraint firstItem="6Ky-H1-gdR" firstAttribute="top" secondItem="Q8u-lK-2V8" secondAttribute="bottom" constant="8" id="8Ew-KK-c1s"/>
+                            <constraint firstItem="cd4-8E-2Vq" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="8Vr-Tq-ttb"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="6Ky-H1-gdR" secondAttribute="bottom" id="GVO-TM-Bvw"/>
+                            <constraint firstItem="cd4-8E-2Vq" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="24" id="M8r-Xh-qB0"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="6Ky-H1-gdR" secondAttribute="trailing" constant="-16" id="ODn-Dm-CGl"/>
+                            <constraint firstItem="Q8u-lK-2V8" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="QyC-Dx-drJ"/>
+                            <constraint firstItem="Q8u-lK-2V8" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="14" id="Whw-3V-N71"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Q8u-lK-2V8" secondAttribute="trailing" constant="-16" id="sZ2-x2-Bm8"/>
+                            <constraint firstItem="cd4-8E-2Vq" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="yqE-bl-foY"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="urlTextField" destination="cd4-8E-2Vq" id="nyy-Re-CrJ"/>

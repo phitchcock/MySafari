@@ -20,6 +20,10 @@ class ViewController: UIViewController, UIWebViewDelegate, UITextFieldDelegate {
         webView.goBack()
     }
 
+    @IBAction func onForwardButtonPressed(sender: AnyObject) {
+
+        webView.goForward()
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
