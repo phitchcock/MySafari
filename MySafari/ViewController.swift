@@ -14,6 +14,13 @@ class ViewController: UIViewController, UIWebViewDelegate, UITextFieldDelegate {
     @IBOutlet weak var webView: UIWebView!
     @IBOutlet weak var urlTextField: UITextField!
 
+    //IBActions
+    @IBAction func onBackButtonPressed(sender: AnyObject) {
+
+        webView.goBack()
+    }
+
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
