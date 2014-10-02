@@ -50,10 +50,6 @@ class ViewController: UIViewController, UIWebViewDelegate, UITextFieldDelegate, 
         alert.show()
     }
 
-    @IBAction func clearURLButtonPressed(sender: AnyObject) {
-        self.urlTextField.text = ""
-    }
-
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         let urlString = urlTextField.text
         urlHelper(urlString)
@@ -84,21 +80,25 @@ class ViewController: UIViewController, UIWebViewDelegate, UITextFieldDelegate, 
         self.view.endEditing(true)
     }
 
-    /*
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return UIStatusBarStyle.LightContent
+    }
+
     func scrollViewDidScroll(scrollView: UIScrollView) {
 
-        var scroll = scrollView.panGestureRecognizer.translationInView(scrollView.superview!)
+        var scroll:CGPoint = scrollView.panGestureRecognizer.translationInView(scrollView.superview!)
 
-        if(scroll.y > 0)
-        {
-            //urlTextField.alpha
+        if(scroll.y > 0) {
 
+            self.urlTextField.alpha += 0.5
+        
         } else {
+
+            self.urlTextField.alpha -= 0.5
 
         }
 
     }
-    */
 
     //Helpers
     func loadUrl(urlString: NSString) {
