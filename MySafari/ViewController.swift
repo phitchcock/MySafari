@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UIWebViewDelegate, UITextFieldDelegate {
+class ViewController: UIViewController, UIWebViewDelegate, UITextFieldDelegate, UIScrollViewDelegate {
 
     //IBOutlets
     @IBOutlet weak var webView: UIWebView!
@@ -17,127 +17,116 @@ class ViewController: UIViewController, UIWebViewDelegate, UITextFieldDelegate {
     @IBOutlet weak var forwardButton: UIButton!
     @IBOutlet weak var navigationLabel: UILabel!
 
+    //Apple Setup
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        homeScreen()
+        self.buttonState()
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
+
     //IBActions
     @IBAction func onBackButtonPressed(sender: AnyObject) {
-
-        webView.goBack()
-
+        self.webView.goBack()
     }
 
     @IBAction func onForwardButtonPressed(sender: AnyObject) {
-
-        webView.goForward()
-
+        self.webView.goForward()
     }
 
     @IBAction func onStopLoadingButtonPressed(sender: AnyObject) {
-
-        webView.stopLoading()
+        self.webView.stopLoading()
     }
 
     @IBAction func onReloadButtonPressed(sender: AnyObject) {
-
-        webView.reload()
+        self.webView.reload()
     }
 
     @IBAction func comingSoonButtonPressed(sender: AnyObject) {
-
         var alert = UIAlertView(title: "Comming Soon", message: "Take over the world", delegate: nil, cancelButtonTitle: "OK")
         alert.show()
     }
 
     @IBAction func clearURLButtonPressed(sender: AnyObject) {
-
-        urlTextField.text = ""
-    }
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        loadUrl("http://www.google.com")
-
-        self.buttonState()
-
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-
+        self.urlTextField.text = ""
     }
 
     func textFieldShouldReturn(textField: UITextField) -> Bool {
-
         let urlString = urlTextField.text
-
         urlHelper(urlString)
-
-        urlTextField.endEditing(true)
-
+        self.urlTextField.endEditing(true)
         return true
     }
 
+    //Functions
     func webViewDidStartLoad(webView: UIWebView) {
-
         UIApplication.sharedApplication().networkActivityIndicatorVisible = true
-
         self.buttonState()
 
     }
 
     func webViewDidFinishLoad(webView: UIWebView) {
-
         UIApplication.sharedApplication().networkActivityIndicatorVisible = false
-
+        let thisURL = webView.request?.URL.absoluteString
+        self.urlTextField.text = thisURL
         self.buttonState()
 
         let returnedString = webView.stringByEvaluatingJavaScriptFromString("document.title")
-        navigationLabel.text = returnedString
+        self.navigationLabel.text = returnedString
         println("\(returnedString)")
 
     }
 
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
-
         self.view.endEditing(true)
     }
 
-    
+    /*
+    func scrollViewDidScroll(scrollView: UIScrollView) {
 
+        var scroll = scrollView.panGestureRecognizer.translationInView(scrollView.superview!)
+
+        if(scroll.y > 0)
+        {
+            //urlTextField.alpha
+
+        } else {
+
+        }
+
+    }
+    */
 
     //Helpers
-
     func loadUrl(urlString: NSString) {
-
         let url = NSURL(string: urlString)
         let urlRequest = NSURLRequest(URL: url)
         self.webView.loadRequest(urlRequest)
     }
 
     func urlHelper(urlString: NSString) {
-
+        
         if urlString.hasPrefix("http://") {
-
             loadUrl(urlString)
-            urlTextField.text = urlString
-            //println("\(urlString)")
+            self.urlTextField.text = urlString
 
         } else {
-
             loadUrl("http://\(urlString)")
-            urlTextField.text = "http://\(urlString)"
-            //println("\(urlString)")
-
+            self.urlTextField.text = "http://\(urlString)"
         }
     }
 
-    func buttonState() {
-
-        self.backButton.enabled = self.webView.canGoBack
-        self.forwardButton.enabled = self.webView.canGoForward
-
-        //self.urlTextField.text = urlString
+    func homeScreen() {
+        self.loadUrl("http://www.mobile-patterns.com/")
     }
 
+    func buttonState() {
+        self.backButton.enabled = self.webView.canGoBack
+        self.forwardButton.enabled = self.webView.canGoForward
+    }
 
 }
 
