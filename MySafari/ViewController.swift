@@ -120,7 +120,7 @@ class ViewController: UIViewController, UIWebViewDelegate, UITextFieldDelegate, 
     }
 
     func homeScreen() {
-        self.loadUrl("http://www.mobile-patterns.com/")
+        self.loadUrl("http://www.github.com/")
     }
 
     func buttonState() {
