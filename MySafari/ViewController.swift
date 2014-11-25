@@ -13,9 +13,9 @@ class ViewController: UIViewController, UIWebViewDelegate, UITextFieldDelegate, 
     //MARK: - IBOutlets
     @IBOutlet weak var webView: UIWebView!
     @IBOutlet weak var urlTextField: UITextField!
-    @IBOutlet weak var backButton: UIButton!
-    @IBOutlet weak var forwardButton: UIButton!
     @IBOutlet weak var navigationLabel: UILabel!
+    @IBOutlet weak var backButton: UIBarButtonItem!
+    @IBOutlet weak var forwardButton: UIBarButtonItem!
 
     override func viewDidLoad() {
         super.viewDidLoad()
