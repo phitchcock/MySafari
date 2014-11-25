@@ -10,18 +10,17 @@ import UIKit
 
 class ViewController: UIViewController, UIWebViewDelegate, UITextFieldDelegate, UIScrollViewDelegate {
 
-    //IBOutlets
+    //MARK: - IBOutlets
     @IBOutlet weak var webView: UIWebView!
     @IBOutlet weak var urlTextField: UITextField!
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var forwardButton: UIButton!
     @IBOutlet weak var navigationLabel: UILabel!
 
-    //Apple Setup
     override func viewDidLoad() {
         super.viewDidLoad()
         homeScreen()
-        self.buttonState()
+        buttonState()
     }
 
     override func didReceiveMemoryWarning() {
@@ -30,19 +29,19 @@ class ViewController: UIViewController, UIWebViewDelegate, UITextFieldDelegate, 
 
     //IBActions
     @IBAction func onBackButtonPressed(sender: AnyObject) {
-        self.webView.goBack()
+        webView.goBack()
     }
 
     @IBAction func onForwardButtonPressed(sender: AnyObject) {
-        self.webView.goForward()
+        webView.goForward()
     }
 
     @IBAction func onStopLoadingButtonPressed(sender: AnyObject) {
-        self.webView.stopLoading()
+        webView.stopLoading()
     }
 
     @IBAction func onReloadButtonPressed(sender: AnyObject) {
-        self.webView.reload()
+        webView.reload()
     }
 
     @IBAction func comingSoonButtonPressed(sender: AnyObject) {
@@ -53,7 +52,7 @@ class ViewController: UIViewController, UIWebViewDelegate, UITextFieldDelegate, 
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         let urlString = urlTextField.text
         urlHelper(urlString)
-        self.urlTextField.endEditing(true)
+        urlTextField.resignFirstResponder()
         return true
     }
 
@@ -61,23 +60,20 @@ class ViewController: UIViewController, UIWebViewDelegate, UITextFieldDelegate, 
     func webViewDidStartLoad(webView: UIWebView) {
         UIApplication.sharedApplication().networkActivityIndicatorVisible = true
         self.buttonState()
-
     }
 
     func webViewDidFinishLoad(webView: UIWebView) {
         UIApplication.sharedApplication().networkActivityIndicatorVisible = false
         let thisURL = webView.request?.URL.absoluteString
-        self.urlTextField.text = thisURL
-        self.buttonState()
-
+        urlTextField.text = thisURL
+        buttonState()
         let returnedString = webView.stringByEvaluatingJavaScriptFromString("document.title")
-        self.navigationLabel.text = returnedString
+        navigationLabel.text = returnedString
         println("\(returnedString)")
-
     }
 
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
-        self.view.endEditing(true)
+        view.endEditing(true)
     }
 
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
@@ -85,37 +81,30 @@ class ViewController: UIViewController, UIWebViewDelegate, UITextFieldDelegate, 
     }
 
     func scrollViewDidScroll(scrollView: UIScrollView) {
-
         var scroll:CGPoint = scrollView.panGestureRecognizer.translationInView(scrollView.superview!)
-
         if(scroll.y > 0) {
-
             self.urlTextField.alpha += 0.5
         
         } else {
-
             self.urlTextField.alpha -= 0.5
-
         }
-
     }
 
     //Helpers
     func loadUrl(urlString: NSString) {
         let url = NSURL(string: urlString)
-        let urlRequest = NSURLRequest(URL: url)
-        self.webView.loadRequest(urlRequest)
+        let urlRequest = NSURLRequest(URL: url!)
+        webView.loadRequest(urlRequest)
     }
 
     func urlHelper(urlString: NSString) {
-        
         if urlString.hasPrefix("http://") {
             loadUrl(urlString)
-            self.urlTextField.text = urlString
+            urlTextField.text = urlString
 
         } else {
             loadUrl("http://\(urlString)")
-            self.urlTextField.text = "http://\(urlString)"
+            urlTextField.text = "http://\(urlString)"
         }
     }
 
@@ -124,9 +113,8 @@ class ViewController: UIViewController, UIWebViewDelegate, UITextFieldDelegate, 
     }
 
     func buttonState() {
-        self.backButton.enabled = self.webView.canGoBack
-        self.forwardButton.enabled = self.webView.canGoForward
+        backButton.enabled = webView.canGoBack
+        forwardButton.enabled = webView.canGoForward
     }
-
 }
 
