@@ -16,3 +16,6 @@
 13. As a user, I want to have the address bar set to the current URL
 14. As a user, I want to see the current web site’s title in the navigation bar
 15. As a user, I want to concentrate on my web content
+
+<a href="url"><img src="https://cloud.githubusercontent.com/assets/2372619/5193740/41ddeece-74b9-11e4-868c-a570b738fd70.png"></a>
+<a href="url"><img src="https://cloud.githubusercontent.com/assets/2372619/5193738/40412cf2-74b9-11e4-8bad-5f62dc004423.png"></a>
